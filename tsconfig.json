@@ -17,7 +17,8 @@
     "baseUrl": "src",
     "paths": {
       "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@tokens/*": ["tokens/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -28,6 +29,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "build"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["node_modules", "build"]
 }

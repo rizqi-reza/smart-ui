@@ -1,12 +1,9 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { ref } from 'vue';
 import HelloWorld from '@components/HelloWorld.vue';
+import Switch from '@components/Switch/Switch.vue';
 
-export default defineComponent({
-  components: {
-    HelloWorld,
-  },
-});
+const switchValue = ref(true);
 </script>
 
 <template>
@@ -19,6 +16,7 @@ export default defineComponent({
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <Switch v-model="switchValue" />
 </template>
 
 <style scoped>

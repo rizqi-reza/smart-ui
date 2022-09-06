@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
 import HelloWorld from '@components/HelloWorld.vue';
-import Switch from '@components/Switch/Switch.vue';
-
-const switchValue = ref(true);
 </script>
 
 <template>
@@ -16,7 +12,6 @@ const switchValue = ref(true);
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <Switch v-model="switchValue" />
 </template>
 
 <style scoped>
@@ -25,9 +20,11 @@ const switchValue = ref(true);
   padding: 1.5em;
   will-change: filter;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { reactive, computed } from 'vue';
-import Color, { EColor, TColor } from '../../tokens/color';
+import { reactive } from 'vue';
+import { TColor, EColor, BgColor, BorderColor, TextColor, } from '../../tokens/color';
 import { Height, FontSize, TSize } from '../../tokens/size';
 import { TVariant } from '../../tokens/variant';
 
@@ -21,36 +21,26 @@ const isOutline = variant === 'outline';
 const emit = defineEmits(['click']);
 const onClick = emit('click');
 
-const colorStyle = Color[color];
 const sizeClass = reactive({
   [Height[size]]: true,
 });
-const backgroundClass = computed(() => ({
-  [`bg-${colorStyle}`]: isSolid && !!colorStyle,
-  // 'bg-blue-700': isSolid && color === EColor.PRIMARY,
-  // 'bg-green-600': isSolid && color === EColor.SUCCESS,
-  // 'bg-yellow-300': isSolid && color === EColor.WARNING,
-  // 'bg-red-700': isSolid && color === EColor.DANGER,
-  // 'bg-blue-400': isSolid && color === EColor.INFO,
-}));
-const borderClass = computed(() => ({
-  [`border-2 border-${colorStyle}`]: isOutline && !!colorStyle,
-  // 'border-2 border-blue-700': isOutline && color === EColor.PRIMARY,
-  // 'border-2 border-green-600': isOutline && color === EColor.SUCCESS,
-  // 'border-2 border-yellow-300': isOutline && color === EColor.WARNING,
-  // 'border-2 border-red-700': isOutline && color === EColor.DANGER,
-  // 'border-2 border-blue-400': isOutline && color === EColor.INFO,
-}));
-const textClass = computed(() => ({
-  [FontSize[size] as string]: true,
-  [`text-${colorStyle}`]: !isSolid && !!colorStyle,
+const backgroundClass = reactive({
+  [BgColor[color]]: isSolid,
+});
+const borderClass = reactive({
+  [BorderColor[color]]: isOutline,
+  'border-2': isOutline
+});
+const textClass = reactive({
+  [FontSize[size]]: true,
+  [TextColor[color]]: !isSolid,
   'text-white': isSolid && color !== EColor.WARNING,
   'hover:underline': variant === 'link',
   'hover:opacity-100': !disabled,
-}));
+});
 const disabledClass = reactive({
-  'opacity-50': disabled,
-  'cursor-not-allowed': disabled
+  'disabled:opacity-50': disabled,
+  'disabled:cursor-not-allowed': disabled
 });
 </script>
 

@@ -1,5 +1,15 @@
 {
   "name": "smart-ui",
+  "type": "commonjs",
+  "files": ["dist"],
+  "main": "./dist/smart-ui.umd.js",
+  "module": "./dist/smart-ui.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/smart-ui.mjs",
+      "require": "./dist/smart-ui.umd.js"
+    }
+  },
   "private": true,
   "version": "1.0.0",
   "scripts": {

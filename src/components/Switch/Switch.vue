@@ -2,7 +2,6 @@
 import { computed, reactive, ref } from 'vue'
 import { BgColor, TColor, TextColor } from '../../tokens/color';
 import { Height, TSize } from '../../tokens/size';
-import './switch.css';
 
 export interface ISwitchProps {
   label?: string;

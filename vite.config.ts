@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue';
 const resolveAlias = require('./tsconfig-alias');
 
@@ -9,4 +10,19 @@ export default defineConfig({
     alias: resolveAlias(),
     extensions: ['.tsx', '.ts', '.js', '.vue'],
   },
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/components/index.ts'),
+      name: 'SmartUI',
+      fileName: 'smart-ui'
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    }
+  }
 });

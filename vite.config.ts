@@ -6,7 +6,12 @@ const resolveAlias = require('./tsconfig-alias');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts()],
+  plugins: [
+    vue(), 
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   resolve: {
     alias: resolveAlias(),
     extensions: ['.tsx', '.ts', '.js', '.vue'],
@@ -15,7 +20,8 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/components/index.ts'),
       name: 'SmartUI',
-      fileName: 'smart-ui'
+      formats: ['es', 'umd'],
+      fileName: (format) => `smart-ui.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],

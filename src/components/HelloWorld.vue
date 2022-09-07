@@ -1,48 +1,44 @@
-<script lang="ts">
-import { ref, defineComponent } from 'vue';
+<script lang="ts" setup>
+import { TVariant } from '@tokens/variant';
+import { ref } from 'vue';
+import { Button, Switch } from './';
 
-export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: { type: String, required: true },
-  },
-  data() {
-    return {
-      count: ref(0),
-    };
-  },
-});
+const props = defineProps<{ msg: string }>();
+const count = ref<number>(0);
+const variant = ref<TVariant>('solid');
+
+const onToggle = () => {
+  variant.value = variant.value === 'solid' ? 'outline' : 'solid';
+}
 </script>
 
-<template>
-  <h1>{{ msg }}</h1>
+<template >
+  <div class="text-center">
+    <h1>{{ props.msg }}</h1>
 
-  <div class="card">
-    <button
-      type="button"
-      @click="count++"
-      className="border border-indigo-600 mb-8"
-    >
-      Count is {{ count }}
-    </button>
+    <div class="card">
+      <Button @click="count++" :variant="variant" :label="variant" class="mb-5">
+        Count is {{ count }}
+      </Button>
+      <Switch label="Change button variant" @toggle="onToggle" />
+      <p>
+        Edit
+        <code>components/HelloWorld.vue</code> to test HMR
+      </p>
+    </div>
+
     <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
+      Check out
+      <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
+      starter
     </p>
+    <p>
+      Install
+      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
+      in your IDE for a better DX
+    </p>
+    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>

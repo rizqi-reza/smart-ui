@@ -56,7 +56,7 @@ const toggle = () => {
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center justify-center">
     <div class="relative flex-none rounded-full border-2 border-slate-200"
       :class="[sizeClass, wrapperClass, markerClass, disabledClass]" @click="toggle" :disabled="disabled">
       <svg v-if="loading" class="animate-spin h-5 w-5" :class="[spinnerClass]" xmlns="http://www.w3.org/2000/svg"

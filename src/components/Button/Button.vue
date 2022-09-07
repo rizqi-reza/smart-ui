@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 import { TColor, EColor, BgColor, BorderColor, TextColor, } from '../../tokens/color';
 import { Height, FontSize, TSize } from '../../tokens/size';
 import { TVariant } from '../../tokens/variant';
 
 export interface IButtonProps {
-  label: string;
+  label?: string;
   size?: TSize;
   variant?: TVariant;
   color?: TColor;
@@ -14,38 +14,42 @@ export interface IButtonProps {
 }
 
 const props = defineProps<IButtonProps>();
-const { size = 'small', variant = 'solid', color = 'primary', disabled } = props || {}
-const isSolid = variant === 'solid';
-const isOutline = variant === 'outline';
+const size = computed(() => props.size || 'small').value;
+const color = computed(() => props.color || 'primary').value;
+const isSolid = computed(() => props.variant === 'solid');
+const isOutline = computed(() => props.variant === 'outline');
 
 const emit = defineEmits(['click']);
-const onClick = emit('click');
+const onClick = () => {
+  emit('click');
+};
 
 const sizeClass = reactive({
   [Height[size]]: true,
 });
-const backgroundClass = reactive({
-  [BgColor[color]]: isSolid,
-});
-const borderClass = reactive({
-  [BorderColor[color]]: isOutline,
-  'border-2': isOutline
-});
-const textClass = reactive({
+const backgroundClass = computed(() => ({
+  [BgColor[color]]: isSolid.value,
+}));
+const borderClass = computed(() => ({
+  [BorderColor[color]]: isOutline.value,
+  'border-2': isOutline.value
+}));
+const textClass = computed(() => ({
   [FontSize[size]]: true,
-  [TextColor[color]]: !isSolid,
-  'text-white': isSolid && color !== EColor.WARNING,
-  'hover:underline': variant === 'link',
-  'hover:opacity-100': !disabled,
-});
-const disabledClass = reactive({
-  'disabled:opacity-50': disabled,
-  'disabled:cursor-not-allowed': disabled
-});
+  [TextColor[color]]: !isSolid.value,
+  'text-white': isSolid.value && color !== EColor.WARNING,
+  'hover:underline': props.variant === 'link',
+  'hover:opacity-100': !props.disabled,
+}));
+const disabledClass = computed(() => ({
+  'disabled:opacity-50': props.disabled,
+  'disabled:cursor-not-allowed': props.disabled
+}));
 </script>
 
 <template>
-  <button type="button" class="flex items-center px-3 py-1 font-bold cursor-pointer opacity-90 rounded-md" :class="[
+
+  <button type="button" class="px-3 py-1 font-bold cursor-pointer opacity-90 rounded-md" :class="[
     sizeClass,
     backgroundClass,
     borderClass,
@@ -59,7 +63,7 @@ const disabledClass = reactive({
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
       </path>
     </svg>
-
     {{ label }}
+    <slot />
   </button>
 </template>

@@ -6,13 +6,14 @@
   ],
   "main": "./dist/smart-ui.umd.js",
   "module": "./dist/smart-ui.mjs",
+  "types": "./dist/components/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/smart-ui.mjs",
       "require": "./dist/smart-ui.umd.js"
     }
   },
-  "version": "1.0.1",
+  "version": "1.0.3",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",

@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import HelloWorld from '@components/HelloWorld.vue';
+import { Header } from './components';
 </script>
 
 <template>
+  <Header />
   <div className="flex justify-center">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />

@@ -5,6 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "outDir": "dist",
+    "declaration": true,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,

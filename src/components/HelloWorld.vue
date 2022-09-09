@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { TVariant } from '@tokens/variant';
 import { ref } from 'vue';
-import { Button, Switch } from './';
+import { Button, Switch } from 'smart-ui';
 
 const props = defineProps<{ msg: string }>();
 const count = ref<number>(0);
@@ -17,7 +17,7 @@ const onToggle = () => {
     <h1>{{ props.msg }}</h1>
 
     <div class="card">
-      <Button @click="count++" :variant="variant" :label="variant" class="mb-5">
+      <Button @click="count++" :variant="variant" class="mb-5">
         Count is {{ count }}
       </Button>
       <Switch label="Change button variant" @toggle="onToggle" />

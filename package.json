@@ -16,16 +16,13 @@
       "require": "./dist/style.css"
     }
   },
-  "version": "1.0.15",
+  "version": "1.0.16",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  },
-  "publishConfig": {
-    "registry": "http://localhost:4873"
   },
   "dependencies": {
     "autoprefixer": "^10.4.8",

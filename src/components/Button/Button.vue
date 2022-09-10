@@ -16,7 +16,7 @@ export interface IButtonProps {
 const props = defineProps<IButtonProps>();
 const size = computed(() => props.size || 'small').value;
 const color = computed(() => props.color || 'primary').value;
-const isSolid = computed(() => props.variant === 'solid');
+const isSolid = computed(() => !props.variant || props.variant === 'solid');
 const isOutline = computed(() => props.variant === 'outline');
 
 const emit = defineEmits(['click']);

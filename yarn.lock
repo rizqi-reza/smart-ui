@@ -10688,6 +10688,11 @@ vite-plugin-dts@^1.4.1:
     fs-extra "^10.0.1"
     ts-morph "^14.0.0"
 
+vite-plugin-libcss@^1.0.5:
+  version "1.0.5"
+  resolved "http://localhost:4873/vite-plugin-libcss/-/vite-plugin-libcss-1.0.5.tgz#a44e139e6aae19589cc0e888a7bdd2e1e0be37a7"
+  integrity sha512-NUQwWhn9j8fpRBwHeDr35a3TuRP0xvdIHtJni+3DcnPcq4Vrg+G5A3ZtCJ8y2EC83G97tBJ36svPdiIVuBEfsQ==
+
 vite@^3.0.7:
   version "3.0.9"
   resolved "https://registry.npmjs.org/vite/-/vite-3.0.9.tgz"

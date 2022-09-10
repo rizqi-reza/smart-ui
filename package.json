@@ -12,7 +12,7 @@
       "require": "./dist/smart-ui.umd.js"
     }
   },
-  "version": "1.0.5",
+  "version": "1.0.9",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -46,6 +46,7 @@
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
     "vite-plugin-dts": "^1.4.1",
+    "vite-plugin-libcss": "^1.0.5",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.39.5"
   }

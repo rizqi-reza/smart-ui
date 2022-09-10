@@ -10,9 +10,13 @@
     ".": {
       "import": "./dist/smart-ui.es.js",
       "require": "./dist/smart-ui.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
-  "version": "1.0.10",
+  "version": "1.0.14",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -46,7 +50,6 @@
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
     "vite-plugin-dts": "^1.4.1",
-    "vite-plugin-libcss": "^1.0.5",
     "vue-loader": "^16.8.3",
     "vue-tsc": "^0.39.5"
   }

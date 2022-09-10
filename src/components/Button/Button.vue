@@ -48,8 +48,7 @@ const disabledClass = computed(() => ({
 </script>
 
 <template>
-
-  <button type="button" class="px-3 py-1 font-bold cursor-pointer opacity-90 rounded-md" :class="[
+  <button type="button" class="flex items-center px-3 py-1 font-bold cursor-pointer opacity-90 rounded-md" :class="[
     sizeClass,
     backgroundClass,
     borderClass,

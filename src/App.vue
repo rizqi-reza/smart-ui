@@ -1,10 +1,20 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import HelloWorld from '@components/HelloWorld.vue';
 import { Header } from './components';
+
+const user = ref<{ name: string } | undefined>(undefined);
+const onLogin = () => {
+  user.value = { name: 'Ruminah Sinaga' };
+}
+
+const onLogout = () => {
+  user.value = undefined;
+}
 </script>
 
 <template>
-  <Header />
+  <Header :user="user" @login="onLogin" @logout="onLogout" />
   <div className="flex justify-center">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />

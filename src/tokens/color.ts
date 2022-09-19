@@ -24,7 +24,6 @@ export const BorderColor = {
   [EColor.INFO]: 'border-blue-400',
 };
 
-
 export const TextColor = {
   [EColor.PRIMARY]: 'text-blue-700',
   [EColor.SUCCESS]: 'text-green-600',

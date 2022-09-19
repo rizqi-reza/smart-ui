@@ -1,4 +1,5 @@
-import Header from './Header.vue';
+import { Meta, Story } from '@storybook/vue3'
+import Header, { IHeaderProps } from './Header.vue';
 
 export default {
   title: 'Smart-UI/Header',
@@ -6,9 +7,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-};
+} as Meta;
 
-const Template = (args) => ({
+const Template:Story<IHeaderProps> = (args) => ({
   components: { Header },
   setup() {
     return { ...args };
@@ -25,5 +26,5 @@ LoggedIn.args = {
 
 export const LoggedOut = Template.bind({});
 LoggedOut.args = {
-  user: null,
+  user: undefined,
 };

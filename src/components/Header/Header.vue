@@ -1,17 +1,26 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import Button from '../Button/Button.vue';
 
-export default defineComponent({
-  name: 'Header',
-  components: { Button },
-  props: {
-    user: {
-      type: Object,
-    },
-  },
-  emits: ['login', 'logout', 'createAccount'],
-});
+export interface IHeaderProps {
+  user?: {
+    name: string;
+  };
+}
+
+const props = defineProps<IHeaderProps>();
+const emit = defineEmits(['login', 'logout', 'createAccount']);
+
+const onLogin = () => {
+  emit('login');
+};
+
+const onLogout = () => {
+  emit('logout');
+};
+
+const onCreateAccount = () => {
+  emit('createAccount');
+};
 </script>
 
 <template>
@@ -29,10 +38,10 @@ export default defineComponent({
         <h1 class="inline-block align-top text-xl font-black leading-none my-1.5 ml-2.5">Acme</h1>
       </div>
       <div class="flex items-center">
-        <span class="text-sm mr-2.5" v-if="user">Welcome, <b>{{ user.name }}</b>!</span>
-        <Button size="small" variant="outline" @click="$emit('logout')" label="Log out" v-if="user" />
-        <Button size="small" variant="outline" @click="$emit('login')" label="Log in" v-if="!user" />
-        <Button size="small" class="ml-2.5" @click="$emit('createAccount')" label="Sign up" v-if="!user" />
+        <span class="text-sm mr-2.5" v-if="props.user">Welcome, <b>{{ props.user?.name }}</b>!</span>
+        <Button size="small" variant="outline" @click="onLogout" label="Log out" v-if="props.user" />
+        <Button size="small" variant="outline" @click="onLogin" label="Log in" v-if="!props.user" />
+        <Button size="small" class="ml-2.5" @click="onCreateAccount" label="Sign up" v-if="!props.user" />
       </div>
     </div>
   </header>

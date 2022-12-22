@@ -9,10 +9,10 @@ const variant = ref<TVariant>('solid');
 
 const onToggle = () => {
   variant.value = variant.value === 'solid' ? 'outline' : 'solid';
-}
+};
 </script>
 
-<template >
+<template>
   <div class="text-center">
     <h1>{{ props.msg }}</h1>
 
@@ -20,7 +20,11 @@ const onToggle = () => {
       <Button @click="count++" :variant="variant" class="mb-5 m-auto">
         Count is {{ count }}
       </Button>
-      <Switch label="Change button variant" @toggle="onToggle" class="justify-center" />
+      <Switch
+        label="Change button variant"
+        @toggle="onToggle"
+        class="justify-center"
+      />
       <p>
         Edit
         <code>components/HelloWorld.vue</code> to test HMR
@@ -29,8 +33,9 @@ const onToggle = () => {
 
     <p>
       Check out
-      <a href=" https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
-      starter
+      <a href=" https://vuejs.org/guide/quick-start.html#local" target="_blank"
+        >create-vue</a
+      >, the official Vue + Vite starter
     </p>
     <p>
       Install

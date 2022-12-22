@@ -5,6 +5,7 @@
   ],
   "main": "./dist/smart-ui.umd.js",
   "module": "./dist/smart-ui.es.js",
+  "type": "module",
   "types": "./dist/components/index.d.ts",
   "exports": {
     ".": {

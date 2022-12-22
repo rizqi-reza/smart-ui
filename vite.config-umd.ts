@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
-const resolveAlias = require('./tsconfig-alias');
 import externalGlobals from 'rollup-plugin-external-globals';
+import resolveAlias from './tsconfig-alias';
 
 const componentName = process.env.COMPONENT_NAME;
 console.log('run');
